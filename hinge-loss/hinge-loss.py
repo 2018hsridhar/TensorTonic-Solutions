@@ -12,14 +12,14 @@ def hinge_loss(y_true, y_score, margin=1.0, reduction="mean") -> float:
     vfunc = np.vectorize(custom_function)
     intermed = margin - np.multiply(y_true, y_score)
     transform_two = vfunc(intermed)
-    # hinge_loss = np.mean(transform_two) # needs reduction
+    hinge_loss = 0
     if reduction == "mean":
-        return np.mean(transform_two)
+        hinge_loss = np.mean(transform_two)
     elif reduction == "sum":
-        return np.sum(transform_two)
-    # return hinge_loss
-    return 0
+        hinge_loss = np.sum(transform_two)
+    return hinge_loss
 
+# Use vectorized functions ( lest coercion ) 
 def custom_function(error):
     loss = np.maximum(0,error)
     return loss
