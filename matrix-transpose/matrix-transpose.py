@@ -11,7 +11,6 @@ def matrix_transpose(A):
     Return the transpose of matrix A (swap rows and columns).
     """
     # 2. Get rows and columns individually
-    # print(type(A))
     A = np.array(A)
     # num_rows = A.shape[0]
     # num_cols = A.shape[1]
@@ -20,7 +19,7 @@ def matrix_transpose(A):
     rows, cols = A.shape
 
     m, n = A.shape
-    transposed = np.zeros((n,m))
+    transposed = np.zeros(shape=(n,m))
     for i in range(m):
         for j in range(n):
             transposed[j][i] = A[i][j]
