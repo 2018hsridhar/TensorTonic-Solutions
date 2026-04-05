@@ -7,13 +7,8 @@ def dot_product(x, y):
     """
     x = np.array(x)
     y = np.array(y)
+    # Bug in unpacking shape
     if(x.shape != y.shape):
         raise ValueError
-    vfunc = np.vectorize(my_func)
-    multiplied = vfunc(x,y)
-    dot_prod = np.sum(multiplied)
+    dot_prod = np.sum(np.multiply(x,y))
     return dot_prod
-
-def my_func(x,y):
-    res = x*y
-    return res
