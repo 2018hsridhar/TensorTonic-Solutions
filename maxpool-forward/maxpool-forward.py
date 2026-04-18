@@ -22,7 +22,7 @@ def maxpool_forward(X, pool_size, stride):
     
             subMatrix = [row[left:right] for row in X[top:bottom]]
     
-            if subMatrix and subMatrix[0]:
+            if len(subMatrix) > 0:
                 output[i][j] = max(max(row) for row in subMatrix)
     return output
     
